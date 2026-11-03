@@ -1,0 +1,47 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local Django database
+db.sqlite3
+db.sqlite3-journal
+
+# Local Django media and static output
+media/
+staticfiles/
+
+# Android generated files
+.gradle/
+.idea/
+build/
+**/build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# YOLOv5 generated files
+runs/
+*.pt
+*.onnx
+*.engine
+*.tflite
+
+# System files
+.DS_Store
+Thumbs.db
