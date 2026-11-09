@@ -1,5 +1,4 @@
-# Intruder Detection System — Assessment 02
-
+# Intruder Detection System — 공통평가 02
 An intruder monitoring and image management system built using **YOLOv5, Django REST Framework, and Android (Kotlin)**.
 
 The system detects objects in real time using a webcam, records meaningful detection events, uploads annotated images to a Django server, and displays the detection history through a web gallery and an Android application.
