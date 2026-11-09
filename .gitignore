@@ -82,3 +82,6 @@ Desktop.ini
 *.log
 *.tmp
 *.bak
+
+# Microsoft Word temporary lock files
+~$*.docx

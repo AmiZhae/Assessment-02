@@ -13,7 +13,6 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executors
 
-
 data class PhotoPost(
     val id: Int,
     val title: String,
@@ -40,6 +39,9 @@ class ImageAdapter(
 
         val image: ImageView =
             view.findViewById(R.id.imgPost)
+
+        val description: TextView =
+            view.findViewById(R.id.txtDescription)
 
         val favorite: ToggleButton =
             view.findViewById(R.id.btnFavorite)
@@ -73,8 +75,19 @@ class ImageAdapter(
     ) {
         val post = posts[position]
 
+        // Display title.
         holder.title.text = post.title
 
+        // Display the complete description.
+        holder.description.text = post.description.ifBlank {
+            "No description available."
+        }
+
+        // Allow descriptions to wrap without truncation.
+        holder.description.maxLines = Int.MAX_VALUE
+        holder.description.ellipsize = null
+
+        // Restore favorite state for recycled cards.
         holder.favorite.setOnCheckedChangeListener(null)
 
         val key = if (post.id > 0) {
@@ -89,10 +102,12 @@ class ImageAdapter(
             onFavoriteClick(post)
         }
 
+        // Keep the existing full-screen preview.
         holder.image.setOnClickListener {
             onImageClick(post)
         }
 
+        // Reset image before loading a new post.
         holder.image.tag = post.imageUrl
         holder.image.setImageDrawable(null)
 

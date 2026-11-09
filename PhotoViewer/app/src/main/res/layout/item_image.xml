@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    <!-- Photo title and favorite button -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,11 +39,34 @@
 
     </LinearLayout>
 
+    <!-- Detection image -->
     <ImageView
         android:id="@+id/imgPost"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:contentDescription="Tap to enlarge photo"
         android:scaleType="fitCenter" />
+
+    <!-- Description label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Description"
+        android:textColor="#202124"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Full description from Django API -->
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="6dp"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3dp"
+        android:scrollHorizontally="false" />
 
 </LinearLayout>
