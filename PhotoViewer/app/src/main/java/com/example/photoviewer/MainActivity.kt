@@ -31,7 +31,7 @@ import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
-    private val serverUrl = "http://192.168.0.4:8000/api_root/Post/"
+    private val serverUrl =  "https://amirulzharif.pythonanywhere.com/api_root/Post/"
 
     private lateinit var txtStatus: TextView
     private lateinit var txtCount: TextView
@@ -586,20 +586,12 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     val imageUrl = when {
-
                         rawImageUrl.isBlank() ||
                                 rawImageUrl == "null" -> ""
 
-                        rawImageUrl.startsWith("http") ->
+                        rawImageUrl.startsWith("http://") ||
+                                rawImageUrl.startsWith("https://") ->
                             rawImageUrl
-                                .replace(
-                                    "127.0.0.1",
-                                    "192.168.0.4"
-                                )
-                                .replace(
-                                    "localhost",
-                                    "192.168.0.4"
-                                )
 
                         else -> URL(
                             URL(serverUrl),

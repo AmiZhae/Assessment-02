@@ -1,13 +1,20 @@
+# ============================================================
+# YOLOV5 - ASSESSMENT 02 GITIGNORE
+# ============================================================
 
 # Python virtual environments
 .venv/
+.venv*/
 venv/
+venv*/
 env/
+ENV/
 
 # Python caches
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
 
 # Local environment variables and secrets
 .env
@@ -16,15 +23,16 @@ __pycache__/
 *.pem
 *.key
 
-# Local Django database
+# Local Django database (if present)
 db.sqlite3
-db.sqlite3-journal
+db.sqlite3-*
+*.sqlite3
 
-# Local Django media and static output
+# Local Django media and static output (if present)
 media/
 staticfiles/
 
-# Android generated files
+# Android generated files (if present)
 .gradle/
 .idea/
 build/
@@ -35,13 +43,42 @@ local.properties
 *.jks
 *.keystore
 
-# YOLOv5 generated files
+# ============================================================
+# YOLOV5 GENERATED FILES
+# ============================================================
+
+# Detection output
 runs/
+results*.csv
+
+# Model weights and exports
 *.pt
+*.weights
 *.onnx
 *.engine
 *.tflite
+*.torchscript
+*.pb
 
-# System files
+# ============================================================
+# OFFLINE DETECTION UPLOADER - REQUIREMENT 10-2
+# ============================================================
+
+# SQLite database and captured detection images
+offline_queue/
+
+# Additional SQLite temporary files
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+
+# ============================================================
+# SYSTEM AND TEMPORARY FILES
+# ============================================================
+
 .DS_Store
 Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.bak

@@ -1,13 +1,38 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Post(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE
+    )
+
     title = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
-    image = models.ImageField(upload_to='images/%Y/%m/%d/', default='images/default_error.png')
+
+    created_date = models.DateTimeField(
+        default=timezone.now
+    )
+
+    published_date = models.DateTimeField(
+        blank=True,
+        null=True
+    )
+
+    image = models.ImageField(
+        upload_to='images/%Y/%m/%d/',
+        default='images/default_error.png'
+    )
+
+    # Unique ID for YOLOv5 detection uploads.
+    # NULL allows existing posts and manual posts.
+    event_id = models.UUIDField(
+        unique=True,
+        null=True,
+        blank=True,
+        editable=False
+    )
 
     def publish(self):
         self.published_date = timezone.now()

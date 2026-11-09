@@ -1,15 +1,49 @@
+
+# ============================================================
+# PHOTOVIEWER - ANDROID GITIGNORE
+# Assessment 02
+# ============================================================
+
+# Android Studio
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+.idea/
+.gradle/
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+
+# Local machine configuration
 local.properties
+
+# Build outputs
+build/
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+out/
+
+# Android packages
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Signing credentials
+*.jks
+*.keystore
+keystore.properties
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*~
+
+# Keep project source files:
+# - app/src/main/java/
+# - app/src/main/res/
+# - AndroidManifest.xml
+# - build.gradle.kts
+# - settings.gradle.kts
+# - gradle/wrapper/
+# - gradlew and gradlew.bat
